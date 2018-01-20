@@ -11464,7 +11464,8 @@
 				2: Census.district_id,
 				3: Census.serial_no_unit,
 				4: Census.name_of_unit,
-				5: Census.name_of_mahallah
+				5: Census.name_of_mahallah,
+				6: Census.id
 			});
 			store.emit('data-updated');
 		});
@@ -11870,7 +11871,7 @@
 
 
 	// module
-	exports.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+	exports.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 	// exports
 
@@ -12244,6 +12245,20 @@
 	//
 	//
 	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
 
 	exports.default = {
 	  data: function data() {
@@ -12345,9 +12360,7 @@
 	  })])]), _vm._v(" "), _c('div', [_c('table', {
 	    staticClass: "ui celled green table single line "
 	  }, [_vm._m(0), _vm._v(" "), _c('tbody', _vm._l((_vm.censuses), function(Census, id) {
-	    return _c('tr', [_c('td', [_vm._v(_vm._s(Census.catName))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(Census.catColor))]), _vm._v(" "), _c('td', [_c('a', {
-	      class: 'ui ' + Census.catColor + ' empty circular label'
-	    })]), _vm._v(" "), _c('td'), _vm._v(" "), _c('td', [_c('button', {
+	    return _c('tr', [_c('td', [_vm._v(_vm._s(Census.serial_no_unit))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(Census.name_of_unit))]), _vm._v(" "), _c('td'), _vm._v(" "), _c('td'), _vm._v(" "), _c('td'), _vm._v(" "), _c('td', [_c('button', {
 	      staticClass: "ui button",
 	      on: {
 	        "click": function($event) {
@@ -12375,7 +12388,7 @@
 	    staticClass: "close icon"
 	  }), _vm._v(" "), _c('div', {
 	    staticClass: "header"
-	  }, [_vm._v("\n\t\t" + _vm._s(_vm.census.id > 0 ? 'Edit census' : 'Add a new census') + "\n\t")]), _vm._v(" "), _c('div', {
+	  }, [_vm._v("\n\t\t\t" + _vm._s(_vm.census.id > 0 ? 'Edit census' : 'Add a new census') + "\n\t\t")]), _vm._v(" "), _c('div', {
 	    staticClass: "content"
 	  }, [_c('form', {
 	    staticClass: "ui form",
@@ -12387,25 +12400,68 @@
 	    }
 	  }, [_c('div', {
 	    staticClass: "field"
-	  }, [_c('label', [_vm._v("Census name")]), _vm._v(" "), _c('input', {
+	  }, [_c('label', [_vm._v("Serial No.")]), _vm._v(" "), _c('input', {
 	    directives: [{
 	      name: "model",
 	      rawName: "v-model",
-	      value: (_vm.catName),
-	      expression: "catName"
+	      value: (_vm.census.serial_no_unit),
+	      expression: "census.serial_no_unit"
 	    }],
 	    attrs: {
 	      "type": "text",
-	      "data-rules": "required",
-	      "placeholder": "Enter a Census name..."
+	      "data-rules": "required"
 	    },
 	    domProps: {
-	      "value": (_vm.catName)
+	      "value": (_vm.census.serial_no_unit)
 	    },
 	    on: {
 	      "input": function($event) {
 	        if ($event.target.composing) { return; }
-	        _vm.catName = $event.target.value
+	        _vm.$set(_vm.census, "serial_no_unit", $event.target.value)
+	      }
+	    }
+	  })]), _vm._v(" "), _c('div', {
+	    staticClass: "field"
+	  }, [_c('label', [_vm._v("Name of Unit")]), _vm._v(" "), _c('input', {
+	    directives: [{
+	      name: "model",
+	      rawName: "v-model",
+	      value: (_vm.census.name_of_unit),
+	      expression: "census.name_of_unit"
+	    }],
+	    attrs: {
+	      "type": "text",
+	      "data-rules": "required"
+	    },
+	    domProps: {
+	      "value": (_vm.census.name_of_unit)
+	    },
+	    on: {
+	      "input": function($event) {
+	        if ($event.target.composing) { return; }
+	        _vm.$set(_vm.census, "name_of_unit", $event.target.value)
+	      }
+	    }
+	  })]), _vm._v(" "), _c('div', {
+	    staticClass: "field"
+	  }, [_c('label', [_vm._v("Name of Mahallah")]), _vm._v(" "), _c('input', {
+	    directives: [{
+	      name: "model",
+	      rawName: "v-model",
+	      value: (_vm.census.name_of_mahallah),
+	      expression: "census.name_of_mahallah"
+	    }],
+	    attrs: {
+	      "type": "text",
+	      "data-rules": "required"
+	    },
+	    domProps: {
+	      "value": (_vm.census.name_of_mahallah)
+	    },
+	    on: {
+	      "input": function($event) {
+	        if ($event.target.composing) { return; }
+	        _vm.$set(_vm.census, "name_of_mahallah", $event.target.value)
 	      }
 	    }
 	  })]), _vm._v(" "), _c('div', {
@@ -12438,7 +12494,7 @@
 	    }
 	  }, [_vm._v("Select a division")])])]), _vm._v(" "), _vm._m(1)])])])])
 	},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-	  return _c('thead', [_c('tr', [_c('th', [_vm._v("Economic Unit / Company")]), _vm._v(" "), _c('th', [_vm._v("Unit Type")]), _vm._v(" "), _c('th', [_vm._v("Year of Inception")]), _vm._v(" "), _c('th', [_vm._v("Is Registered")]), _vm._v(" "), _c('th')])])
+	  return _c('thead', [_c('tr', [_c('th', [_vm._v("Serial No.")]), _vm._v(" "), _c('th', [_vm._v("Economic Unit / Company")]), _vm._v(" "), _c('th', [_vm._v("Unit Type")]), _vm._v(" "), _c('th', [_vm._v("Year of Inception")]), _vm._v(" "), _c('th', [_vm._v("Is Registered")]), _vm._v(" "), _c('th')])])
 	},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
 	  return _c('div', {}, [_c('button', {
 	    staticClass: "ui purple inverted button",

@@ -48,7 +48,8 @@ store.editCensus = (catId, Census) => {
 			2: Census.district_id,
 			3: Census.serial_no_unit, 
 			4: Census.name_of_unit, 
-			5: Census.name_of_mahallah
+			5: Census.name_of_mahallah,
+			6: Census.id
 		});
 		store.emit('data-updated');
 	});

@@ -12,6 +12,7 @@
 					<table class="ui celled green table single line ">
 						<thead>
 						<tr>
+							<th>Serial No.</th>
 							<th>Economic Unit / Company</th>
 							<th>Unit Type</th>
 							<th>Year of Inception</th>
@@ -21,9 +22,10 @@
 						</thead>
 						<tbody>
 							<tr v-for="(Census, id) in censuses">
-								<td>{{Census.catName}}</td>
-								<td>{{Census.catColor}}</td>
-								<td><a v-bind:class="'ui ' + Census.catColor + ' empty circular label'"></a></td>
+								<td>{{Census.serial_no_unit}}</td>
+								<td>{{Census.name_of_unit}}</td>
+								<td></td>
+								<td></td>
 								<td></td>
 								<td>
 									<button @click="editCensus(id)" class="ui button"><i class="edit fa fa-edit" ></i> Edit</button>
@@ -38,33 +40,45 @@
 		</div>
 		
 		<div id="census-modal" class="ui small modal">
-		<i class="close icon"></i>
-		<div class="header">
-			{{census.id > 0 ? 'Edit census' : 'Add a new census' }}
+			<i class="close icon"></i>
+			<div class="header">
+				{{census.id > 0 ? 'Edit census' : 'Add a new census' }}
+			</div>
+
+			<div class="content">
+
+				<form class="ui form" @submit.prevent="saveCensus">
+
+					<div class="field">
+						<label>Serial No.</label>
+						<input v-model="census.serial_no_unit" type="text" data-rules="required">
+					</div>
+
+					<div class="field">
+						<label>Name of Unit</label>
+						<input v-model="census.name_of_unit" type="text" data-rules="required">
+					</div>
+
+					<div class="field">
+						<label>Name of Mahallah</label>
+						<input v-model="census.name_of_mahallah" type="text" data-rules="required">
+					</div>		
+
+					<div class="field">
+						<label>Division</label>
+						<select v-model="catColor" data-rules="required" class="ui simple dropdown">
+							<option value="">Select a division</option>
+							
+							
+						</select>
+					</div>
+					<div class="">
+						<button type="submit" class="ui purple inverted button">Save</button>
+					</div>
+				</form>
+			</div>
+
 		</div>
-
-		<div class="content">
-
-			<form class="ui form" @submit.prevent="saveCensus">
-				<div class="field">
-					<label>Census name</label>
-					<input v-model="catName" type="text" data-rules="required" placeholder="Enter a Census name...">
-				</div>
-				<div class="field">
-					<label>Division</label>
-					<select v-model="catColor" data-rules="required" class="ui simple dropdown">
-						<option value="">Select a division</option>
-						
-            
-					</select>
-				</div>
-				<div class="">
-					<button type="submit" class="ui purple inverted button">Save</button>
-				</div>
-			</form>
-		</div>
-
-	</div>
 
 	</div>
 </template>
