@@ -11319,7 +11319,7 @@
 	__vue_exports__ = __webpack_require__(6)
 
 	/* template */
-	var __vue_template__ = __webpack_require__(20)
+	var __vue_template__ = __webpack_require__(17)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -11366,11 +11366,11 @@
 
 	var _store2 = _interopRequireDefault(_store);
 
-	var _CensusList = __webpack_require__(9);
+	var _Census = __webpack_require__(9);
 
-	var _CensusList2 = _interopRequireDefault(_CensusList);
+	var _Census2 = _interopRequireDefault(_Census);
 
-	var _EventHub = __webpack_require__(17);
+	var _EventHub = __webpack_require__(15);
 
 	var _EventHub2 = _interopRequireDefault(_EventHub);
 
@@ -11378,7 +11378,7 @@
 
 	exports.default = {
 	  components: {
-	    CensusList: _CensusList2.default
+	    Census: _Census2.default
 	  },
 
 	  data: function data() {
@@ -11802,7 +11802,7 @@
 	__vue_exports__ = __webpack_require__(14)
 
 	/* template */
-	var __vue_template__ = __webpack_require__(19)
+	var __vue_template__ = __webpack_require__(16)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -11814,7 +11814,7 @@
 	if (typeof __vue_options__ === "function") {
 	  __vue_options__ = __vue_options__.options
 	}
-	__vue_options__.__file = "D:\\Faruque\\Projects\\BRS_BBS\\bookmarking-app-electron-vuejs-sqlite\\app\\components\\CensusList.vue"
+	__vue_options__.__file = "D:\\Faruque\\Projects\\BRS_BBS\\bookmarking-app-electron-vuejs-sqlite\\app\\components\\Census.vue"
 	__vue_options__.render = __vue_template__.render
 	__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 
@@ -11825,12 +11825,12 @@
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
 	  if (!module.hot.data) {
-	    hotAPI.createRecord("data-v-a2b16718", __vue_options__)
+	    hotAPI.createRecord("data-v-62b275b6", __vue_options__)
 	  } else {
-	    hotAPI.reload("data-v-a2b16718", __vue_options__)
+	    hotAPI.reload("data-v-62b275b6", __vue_options__)
 	  }
 	})()}
-	if (__vue_options__.functional) {console.error("[vue-loader] CensusList.vue: functional components are not supported and should be defined in plain js files using render functions.")}
+	if (__vue_options__.functional) {console.error("[vue-loader] Census.vue: functional components are not supported and should be defined in plain js files using render functions.")}
 
 	module.exports = __vue_exports__
 
@@ -11851,8 +11851,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../node_modules/css-loader/index.js!../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-a2b16718!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./CensusList.vue", function() {
-				var newContent = require("!!../../node_modules/css-loader/index.js!../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-a2b16718!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./CensusList.vue");
+			module.hot.accept("!!../../node_modules/css-loader/index.js!../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-62b275b6!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Census.vue", function() {
+				var newContent = require("!!../../node_modules/css-loader/index.js!../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-62b275b6!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Census.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -11870,7 +11870,7 @@
 
 
 	// module
-	exports.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+	exports.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 	// exports
 
@@ -12167,35 +12167,135 @@
 
 	var _store2 = _interopRequireDefault(_store);
 
-	var _CensusModal = __webpack_require__(15);
-
-	var _CensusModal2 = _interopRequireDefault(_CensusModal);
-
-	var _EventHub = __webpack_require__(17);
+	var _EventHub = __webpack_require__(15);
 
 	var _EventHub2 = _interopRequireDefault(_EventHub);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+
 	exports.default = {
 	  data: function data() {
 	    return {
-	      selectedCensus: ""
+	      selectedCensus: "",
+	      census: {
+	        id: 0,
+	        division_id: 0,
+	        district_id: 0,
+	        serial_no_unit: 0,
+	        name_of_unit: '',
+	        name_of_mahallah: ''
+	      },
+	      divisions: [{ id: 1, name: 'Dhaka' }, { id: 2, name: 'Rajshahi' }, { id: 3, name: 'Chittagong' }],
+	      districts: [{ id: 1, division_id: 1, name: 'Faridfur' }, { id: 2, division_id: 1, name: 'Gazipur' }, { id: 3, division_id: 2, name: 'Naogaon' }, { id: 4, division_id: 2, name: 'Chapai Nawabganj' }, { id: 5, division_id: 3, name: 'Comilla' }, { id: 6, division_id: 3, name: 'Cox\'s Bazar' }, { id: 7, division_id: 3, name: 'Bandarban' }]
 	    };
 	  },
 
 
 	  props: ["censuses"],
-	  components: {
-	    CensusModal: _CensusModal2.default
-	  },
 
 	  methods: {
 	    addCensus: function addCensus() {
-	      _EventHub2.default.$emit("add-Census");
+	      this.census = {
+	        id: 0,
+	        division_id: 0,
+	        district_id: 0,
+	        serial_no_unit: 0,
+	        name_of_unit: '',
+	        name_of_mahallah: ''
+	      };
+
+	      $("#census-modal").modal("show");
 	    },
 	    editCensus: function editCensus(CensusId) {
-	      _EventHub2.default.$emit("edit-Census", CensusId);
+	      var _this = this;
+
+	      _store2.default.getCensus(CensusId, function (err, Census) {
+	        if (err) {} else {
+	          _this.census = Census;
+	          $("#census-modal").modal("show");
+	        }
+	      });
+	    },
+	    saveCensus: function saveCensus() {
+	      if (this.census.id > 0) {
+	        _store2.default.editCensus(this.census.id, this.census);
+	      } else {
+	        _store2.default.addCensus(this.census);
+	      }
+
+	      $("#census-modal").modal("hide");
 	    },
 	    deleteCensus: function deleteCensus(CensusId) {
 	      if (confirm("Are you sure to delete this Census?")) {
@@ -12203,240 +12303,10 @@
 	      }
 	    }
 	  }
-	}; //
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
+	};
 
 /***/ }),
 /* 15 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var __vue_exports__, __vue_options__
-	var __vue_styles__ = {}
-
-	/* script */
-	__vue_exports__ = __webpack_require__(16)
-
-	/* template */
-	var __vue_template__ = __webpack_require__(18)
-	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
-	if (
-	  typeof __vue_exports__.default === "object" ||
-	  typeof __vue_exports__.default === "function"
-	) {
-	if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
-	__vue_options__ = __vue_exports__ = __vue_exports__.default
-	}
-	if (typeof __vue_options__ === "function") {
-	  __vue_options__ = __vue_options__.options
-	}
-	__vue_options__.__file = "D:\\Faruque\\Projects\\BRS_BBS\\bookmarking-app-electron-vuejs-sqlite\\app\\components\\CensusModal.vue"
-	__vue_options__.render = __vue_template__.render
-	__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-
-	/* hot reload */
-	if (false) {(function () {
-	  var hotAPI = require("vue-hot-reload-api")
-	  hotAPI.install(require("vue"), false)
-	  if (!hotAPI.compatible) return
-	  module.hot.accept()
-	  if (!module.hot.data) {
-	    hotAPI.createRecord("data-v-19a5a372", __vue_options__)
-	  } else {
-	    hotAPI.reload("data-v-19a5a372", __vue_options__)
-	  }
-	})()}
-	if (__vue_options__.functional) {console.error("[vue-loader] CensusModal.vue: functional components are not supported and should be defined in plain js files using render functions.")}
-
-	module.exports = __vue_exports__
-
-
-/***/ }),
-/* 16 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _vue = __webpack_require__(1);
-
-	var _vue2 = _interopRequireDefault(_vue);
-
-	var _store = __webpack_require__(7);
-
-	var _store2 = _interopRequireDefault(_store);
-
-	var _EventHub = __webpack_require__(17);
-
-	var _EventHub2 = _interopRequireDefault(_EventHub);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	exports.default = {
-	  data: function data() {
-	    return {
-	      catId: 0,
-	      catName: "",
-	      catColor: "",
-	      CensusColors: ["red", "orange", "yellow", "olive", "green", "teal", "blue", "violet", "purple", "pink", "brown", "grey", "black"]
-	    };
-	  },
-
-
-	  methods: {
-	    addCensus: function addCensus() {
-	      var newCensus = {
-	        catName: this.catName,
-	        catColor: this.catColor
-	      };
-
-	      _store2.default.addCensus(newCensus);
-	      $("#addcat-modal").modal("hide");
-	    },
-
-	    addCensusForm: function addCensusForm() {
-	      this.catName = this.catColor = "";
-
-	      $("#addcat-modal").modal("show");
-	    },
-
-	    editCensus: function editCensus() {
-	      var newCensus = {
-	        catName: this.catName,
-	        catColor: this.catColor
-	      };
-	      _store2.default.editCensus(this.catId, newCensus);
-	      $("#editcat-modal").modal("hide");
-	    },
-
-	    editCensusForm: function editCensusForm(catId) {
-	      var _this = this;
-
-	      _store2.default.getCensus(catId, function (err, Census) {
-	        if (err) {} else {
-	          _this.catId = Census.id;
-	          _this.catName = Census.catName;
-	          _this.catColor = Census.catColor;
-	          $("#editcat-modal").modal("show");
-	        }
-	      });
-	    }
-	  },
-
-	  mounted: function mounted() {
-	    _EventHub2.default.$on("add-Census", this.addCensusForm);
-	    _EventHub2.default.$on("edit-Census", this.editCensusForm);
-	  },
-
-	  beforeDestroy: function beforeDestroy() {
-	    _EventHub2.default.$off("add-Census", this.addCensusForm);
-	    _EventHub2.default.$off("edit-Census", this.editCensusForm);
-	  }
-	}; //
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-
-/***/ }),
-/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -12454,179 +12324,7 @@
 	exports.default = new _vue2.default(); // Understanding Components Communication in Vue 2.0 http://taha-sh.com/blog/understanding-components-communication-in-vue-20
 
 /***/ }),
-/* 18 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-	  return _c('div', [_c('div', {
-	    staticClass: "ui small modal",
-	    attrs: {
-	      "id": "addcat-modal"
-	    }
-	  }, [_c('i', {
-	    staticClass: "close icon"
-	  }), _vm._v(" "), _c('div', {
-	    staticClass: "header"
-	  }, [_vm._v("\r\n\t\t\tAdd a new census\r\n\t\t")]), _vm._v(" "), _c('div', {
-	    staticClass: "content"
-	  }, [_c('form', {
-	    staticClass: "ui form addcatform",
-	    on: {
-	      "submit": function($event) {
-	        $event.preventDefault();
-	        _vm.addCensus($event)
-	      }
-	    }
-	  }, [_c('div', {
-	    staticClass: "field"
-	  }, [_c('label', [_vm._v("Census name")]), _vm._v(" "), _c('input', {
-	    directives: [{
-	      name: "model",
-	      rawName: "v-model",
-	      value: (_vm.catName),
-	      expression: "catName"
-	    }],
-	    attrs: {
-	      "type": "text",
-	      "data-rules": "required",
-	      "placeholder": "Enter a Census name..."
-	    },
-	    domProps: {
-	      "value": (_vm.catName)
-	    },
-	    on: {
-	      "input": function($event) {
-	        if ($event.target.composing) { return; }
-	        _vm.catName = $event.target.value
-	      }
-	    }
-	  })]), _vm._v(" "), _c('div', {
-	    staticClass: "field"
-	  }, [_c('label', [_vm._v("Census Color")]), _vm._v(" "), _c('select', {
-	    directives: [{
-	      name: "model",
-	      rawName: "v-model",
-	      value: (_vm.catColor),
-	      expression: "catColor"
-	    }],
-	    staticClass: "ui simple dropdown",
-	    attrs: {
-	      "data-rules": "required"
-	    },
-	    on: {
-	      "change": function($event) {
-	        var $$selectedVal = Array.prototype.filter.call($event.target.options, function(o) {
-	          return o.selected
-	        }).map(function(o) {
-	          var val = "_value" in o ? o._value : o.value;
-	          return val
-	        });
-	        _vm.catColor = $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-	      }
-	    }
-	  }, [_c('option', {
-	    attrs: {
-	      "value": ""
-	    }
-	  }, [_vm._v("Select a color")]), _vm._v(" "), _vm._l((_vm.CensusColors), function(color) {
-	    return _c('option', [_vm._v("\r\n\t\t\t\t\t\t\t" + _vm._s(color) + "\r\n\t\t\t\t\t\t")])
-	  })], 2)]), _vm._v(" "), _vm._m(0)])])]), _vm._v(" "), _c('div', {
-	    staticClass: "ui small modal",
-	    attrs: {
-	      "id": "editcat-modal"
-	    }
-	  }, [_c('i', {
-	    staticClass: "close icon"
-	  }), _vm._v(" "), _c('div', {
-	    staticClass: "header"
-	  }, [_vm._v("\r\n\t\t\tEdit a Census\r\n\t\t")]), _vm._v(" "), _c('div', {
-	    staticClass: "content"
-	  }, [_c('form', {
-	    staticClass: "ui form editcatform",
-	    on: {
-	      "submit": function($event) {
-	        $event.preventDefault();
-	        _vm.editCensus(_vm.catId)
-	      }
-	    }
-	  }, [_c('div', {
-	    staticClass: "field"
-	  }, [_c('label', [_vm._v("Census name")]), _vm._v(" "), _c('input', {
-	    directives: [{
-	      name: "model",
-	      rawName: "v-model",
-	      value: (_vm.catName),
-	      expression: "catName"
-	    }],
-	    attrs: {
-	      "data-rules": "required",
-	      "type": "text",
-	      "placeholder": "Enter a Census name..."
-	    },
-	    domProps: {
-	      "value": (_vm.catName)
-	    },
-	    on: {
-	      "input": function($event) {
-	        if ($event.target.composing) { return; }
-	        _vm.catName = $event.target.value
-	      }
-	    }
-	  })]), _vm._v(" "), _c('div', {
-	    staticClass: "field"
-	  }, [_c('label', [_vm._v("Census Color")]), _vm._v(" "), _c('select', {
-	    directives: [{
-	      name: "model",
-	      rawName: "v-model",
-	      value: (_vm.catColor),
-	      expression: "catColor"
-	    }],
-	    staticClass: "ui simple dropdown",
-	    attrs: {
-	      "data-rules": "required"
-	    },
-	    on: {
-	      "change": function($event) {
-	        var $$selectedVal = Array.prototype.filter.call($event.target.options, function(o) {
-	          return o.selected
-	        }).map(function(o) {
-	          var val = "_value" in o ? o._value : o.value;
-	          return val
-	        });
-	        _vm.catColor = $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-	      }
-	    }
-	  }, [_c('option', {
-	    attrs: {
-	      "value": ""
-	    }
-	  }, [_vm._v("Select a color")]), _vm._v(" "), _vm._l((_vm.CensusColors), function(color) {
-	    return _c('option', [_vm._v("\r\n\t\t\t\t\t\t\t" + _vm._s(color) + "\r\n\t\t\t\t\t\t")])
-	  })], 2)]), _vm._v(" "), _vm._m(1)])])])])
-	},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-	  return _c('div', {}, [_c('button', {
-	    staticClass: "ui purple inverted button",
-	    attrs: {
-	      "type": "submit"
-	    }
-	  }, [_vm._v("Save")])])
-	},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-	  return _c('div', {}, [_c('button', {
-	    staticClass: "ui purple inverted button",
-	    attrs: {
-	      "type": "submit"
-	    }
-	  }, [_vm._v("Save")])])
-	}]}
-	if (false) {
-	  module.hot.accept()
-	  if (module.hot.data) {
-	     require("vue-hot-reload-api").rerender("data-v-19a5a372", module.exports)
-	  }
-	}
-
-/***/ }),
-/* 19 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -12668,19 +12366,96 @@
 	    }, [_c('i', {
 	      staticClass: "remove fa fa-trash"
 	    }), _vm._v(" Delete")])])])
-	  }))])])])]), _vm._v(" "), _c('Census-modal')], 1)
+	  }))])])])]), _vm._v(" "), _c('div', {
+	    staticClass: "ui small modal",
+	    attrs: {
+	      "id": "census-modal"
+	    }
+	  }, [_c('i', {
+	    staticClass: "close icon"
+	  }), _vm._v(" "), _c('div', {
+	    staticClass: "header"
+	  }, [_vm._v("\n\t\t" + _vm._s(_vm.census.id > 0 ? 'Edit census' : 'Add a new census') + "\n\t")]), _vm._v(" "), _c('div', {
+	    staticClass: "content"
+	  }, [_c('form', {
+	    staticClass: "ui form",
+	    on: {
+	      "submit": function($event) {
+	        $event.preventDefault();
+	        _vm.saveCensus($event)
+	      }
+	    }
+	  }, [_c('div', {
+	    staticClass: "field"
+	  }, [_c('label', [_vm._v("Census name")]), _vm._v(" "), _c('input', {
+	    directives: [{
+	      name: "model",
+	      rawName: "v-model",
+	      value: (_vm.catName),
+	      expression: "catName"
+	    }],
+	    attrs: {
+	      "type": "text",
+	      "data-rules": "required",
+	      "placeholder": "Enter a Census name..."
+	    },
+	    domProps: {
+	      "value": (_vm.catName)
+	    },
+	    on: {
+	      "input": function($event) {
+	        if ($event.target.composing) { return; }
+	        _vm.catName = $event.target.value
+	      }
+	    }
+	  })]), _vm._v(" "), _c('div', {
+	    staticClass: "field"
+	  }, [_c('label', [_vm._v("Division")]), _vm._v(" "), _c('select', {
+	    directives: [{
+	      name: "model",
+	      rawName: "v-model",
+	      value: (_vm.catColor),
+	      expression: "catColor"
+	    }],
+	    staticClass: "ui simple dropdown",
+	    attrs: {
+	      "data-rules": "required"
+	    },
+	    on: {
+	      "change": function($event) {
+	        var $$selectedVal = Array.prototype.filter.call($event.target.options, function(o) {
+	          return o.selected
+	        }).map(function(o) {
+	          var val = "_value" in o ? o._value : o.value;
+	          return val
+	        });
+	        _vm.catColor = $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+	      }
+	    }
+	  }, [_c('option', {
+	    attrs: {
+	      "value": ""
+	    }
+	  }, [_vm._v("Select a division")])])]), _vm._v(" "), _vm._m(1)])])])])
 	},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
 	  return _c('thead', [_c('tr', [_c('th', [_vm._v("Economic Unit / Company")]), _vm._v(" "), _c('th', [_vm._v("Unit Type")]), _vm._v(" "), _c('th', [_vm._v("Year of Inception")]), _vm._v(" "), _c('th', [_vm._v("Is Registered")]), _vm._v(" "), _c('th')])])
+	},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+	  return _c('div', {}, [_c('button', {
+	    staticClass: "ui purple inverted button",
+	    attrs: {
+	      "type": "submit"
+	    }
+	  }, [_vm._v("Save")])])
 	}]}
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-hot-reload-api").rerender("data-v-a2b16718", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-62b275b6", module.exports)
 	  }
 	}
 
 /***/ }),
-/* 20 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -12688,7 +12463,7 @@
 	    attrs: {
 	      "id": "app"
 	    }
-	  }, [_c('CensusList', {
+	  }, [_c('Census', {
 	    attrs: {
 	      "censuses": _vm.censuses
 	    }

@@ -1,8 +1,8 @@
 <template>
 	<!-- The HTML template for our component -->
 	<div id="app">
-		<CensusList :censuses="censuses">
-		</CensusList>
+		<Census :censuses="censuses">
+		</Census>
 	</div>
 </template>
 
@@ -10,12 +10,12 @@
 // the Javascript for our component
 // We will export a Vue component options object here
 import store from "./store";
-import CensusList from "./components/CensusList.vue";
+import Census from "./components/Census.vue";
 import eventHub from "./shared/EventHub";
 
 export default {
   components: {
-    CensusList
+    Census
   },
 
   data() {
