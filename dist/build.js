@@ -12637,7 +12637,7 @@
 	    }
 	  }, [_c('div', {
 	    staticClass: "container"
-	  }, [_c('h2', [_vm._v("\n\t\t\t\t\tEconomic Census Information\n\t\t\t\t\t"), _c('span', {
+	  }, [_c('h2', [_vm._v("\n\t\t\t\tEconomic Census Information\n\t\t\t\t"), _c('span', {
 	    staticClass: "clickable right-float"
 	  }, [_c('i', {
 	    staticClass: "add icon",
