@@ -1,5 +1,6 @@
 var path = require('path')
 var webpack = require('webpack')
+const ElectronPackager = require("webpack-electron-packager");
 
 module.exports = {
 	entry:'./app/main.js',
@@ -27,7 +28,12 @@ module.exports = {
 	plugins:[
 		new webpack.ExternalsPlugin('commonjs', [
 			'electron'
-		])
+		]),
+		new ElectronPackager({
+			dir: "D:/Faruque/Projects/BRS_BBS/bookmarking-app-electron-vuejs-sqlite",
+			arch: "x64",
+			platform: "win32",
+		  }) 
 	],
 	resolve:{
 		alias:{
