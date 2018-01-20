@@ -4,7 +4,7 @@ const store = new EventEmitter();
 
 store.getCensuses = function (cb) {
 	var censuses = {};
-	db.each("select id, catName, catColor, (select count(id) from bookmarks where bookmarks.category_id=categories.id) as bookmarkCount from categories", function (err, row) {
+	db.each("select * from census", function (err, row) {
 		censuses[row.id] = row;
 	}, function (err, rowCount) {
 		cb(null, censuses);
@@ -12,7 +12,7 @@ store.getCensuses = function (cb) {
 }
 
 store.getCensus = function (catId, cb) {
-	db.get("select id, catName, catColor from categories where id=?", { 1: catId },
+	db.get("select * from census where id=?", { 1: catId },
 		function (err, row) {
 			cb(null, row);
 		});
@@ -20,21 +20,35 @@ store.getCensus = function (catId, cb) {
 
 store.addCensus = (Census) => {
 	db.serialize(function () {
-		var stmt = db.prepare("insert into categories('catName', 'catColor') values(?, ?)");
-		// for (var var1 in Census) {
-		// stmt.run(var1, Census[var1]);
-		// }
-		stmt.run(Census.catName, Census.catColor);
+		var stmt = db.prepare(`insert into census
+		('division_id', 'district_id', 'serial_no_unit', 'name_of_unit', 'name_of_mahallah') 
+		values(?, ?, ?, ?, ?)`);
+		
+		stmt.run(Census.division_id, 
+			Census.district_id,
+			Census.serial_no_unit, 
+			Census.name_of_unit, 
+			Census.name_of_mahallah);
+
 		store.emit('data-updated');
 	});
 }
 
 store.editCensus = (catId, Census) => {
 	db.serialize(function () {
-		db.run("update categories set catName=?, catColor=? where id=?", {
-			1: Census.catName,
-			2: Census.catColor,
-			3: catId
+		db.run(`update census set 
+		division_id=?, 
+		district_id=?, 
+		serial_no_unit=?, 
+		name_of_unit=?, 
+		name_of_mahallah=?  
+		where id=?`, 
+		{
+			1: Census.division_id, 
+			2: Census.district_id,
+			3: Census.serial_no_unit, 
+			4: Census.name_of_unit, 
+			5: Census.name_of_mahallah
 		});
 		store.emit('data-updated');
 	});
@@ -42,7 +56,7 @@ store.editCensus = (catId, Census) => {
 
 store.deleteCensus = (catId) => {
 	db.serialize(function () {
-		var stmt = db.prepare("delete from categories where id=?");
+		var stmt = db.prepare("delete from census where id=?");
 		stmt.run(catId);
 		store.emit('data-updated');
 	});

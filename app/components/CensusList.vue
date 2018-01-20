@@ -8,15 +8,8 @@
 						<i @click="addCensus" class="add icon"></i>
 					</span>
 				</h2>
-				
-				<div class="ui list">
-					<div class="item clickable">
-						<div class="content">
-							<a class="ui grey empty circular label"></a>
-							<span @click="CensusSelected('')">All</span>
-						</div>
-					</div>
-					<table class="ui celled table">
+				<div>
+					<table class="ui celled green table single line ">
 						<thead>
 						<tr>
 							<th>Economic Unit / Company</th>
@@ -27,20 +20,20 @@
 						</tr>
 						</thead>
 						<tbody>
-						<tr v-for="(Census, id) in censuses">
-							<td>{{Census.catName}}</td>
-							<td>{{Census.catColor}}</td>
-							<td><a v-bind:class="'ui ' + Census.catColor + ' empty circular label'"></a></td>
-							<td></td>
-							<td>
-								<button @click="editCensus(id)" class="ui button"><i class="edit fa fa-edit" ></i> Edit</button>
-								<button @click="deleteCensus(id)" class="ui button"><i class="remove fa fa-trash" ></i> Delete</button>
-							</td>
+							<tr v-for="(Census, id) in censuses">
+								<td>{{Census.catName}}</td>
+								<td>{{Census.catColor}}</td>
+								<td><a v-bind:class="'ui ' + Census.catColor + ' empty circular label'"></a></td>
+								<td></td>
+								<td>
+									<button @click="editCensus(id)" class="ui button"><i class="edit fa fa-edit" ></i> Edit</button>
+									<button @click="deleteCensus(id)" class="ui button"><i class="remove fa fa-trash" ></i> Delete</button>
+								</td>
 
-						</tr>
+							</tr>
 						</tbody>
 					</table>
-				</div>
+</div>
 			</div>
 		</div>
 		<Census-modal></Census-modal>
@@ -81,3 +74,6 @@ export default {
   }
 };
 </script>
+
+<style>
+</style>

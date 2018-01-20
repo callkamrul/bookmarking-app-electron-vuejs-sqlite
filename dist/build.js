@@ -11319,7 +11319,7 @@
 	__vue_exports__ = __webpack_require__(6)
 
 	/* template */
-	var __vue_template__ = __webpack_require__(16)
+	var __vue_template__ = __webpack_require__(20)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -11370,7 +11370,7 @@
 
 	var _CensusList2 = _interopRequireDefault(_CensusList);
 
-	var _EventHub = __webpack_require__(13);
+	var _EventHub = __webpack_require__(17);
 
 	var _EventHub2 = _interopRequireDefault(_EventHub);
 
@@ -11434,7 +11434,7 @@
 
 	store.getCensuses = function (cb) {
 		var censuses = {};
-		db.each("select id, catName, catColor, (select count(id) from bookmarks where bookmarks.category_id=categories.id) as bookmarkCount from categories", function (err, row) {
+		db.each("select * from census", function (err, row) {
 			censuses[row.id] = row;
 		}, function (err, rowCount) {
 			cb(null, censuses);
@@ -11442,28 +11442,29 @@
 	};
 
 	store.getCensus = function (catId, cb) {
-		db.get("select id, catName, catColor from categories where id=?", { 1: catId }, function (err, row) {
+		db.get("select * from census where id=?", { 1: catId }, function (err, row) {
 			cb(null, row);
 		});
 	};
 
 	store.addCensus = function (Census) {
 		db.serialize(function () {
-			var stmt = db.prepare("insert into categories('catName', 'catColor') values(?, ?)");
-			// for (var var1 in Census) {
-			// stmt.run(var1, Census[var1]);
-			// }
-			stmt.run(Census.catName, Census.catColor);
+			var stmt = db.prepare("insert into census\n\t\t('division_id', 'district_id', 'serial_no_unit', 'name_of_unit', 'name_of_mahallah') \n\t\tvalues(?, ?, ?, ?, ?)");
+
+			stmt.run(Census.division_id, Census.district_id, Census.serial_no_unit, Census.name_of_unit, Census.name_of_mahallah);
+
 			store.emit('data-updated');
 		});
 	};
 
 	store.editCensus = function (catId, Census) {
 		db.serialize(function () {
-			db.run("update categories set catName=?, catColor=? where id=?", {
-				1: Census.catName,
-				2: Census.catColor,
-				3: catId
+			db.run("update census set \n\t\tdivision_id=?, \n\t\tdistrict_id=?, \n\t\tserial_no_unit=?, \n\t\tname_of_unit=?, \n\t\tname_of_mahallah=?  \n\t\twhere id=?", {
+				1: Census.division_id,
+				2: Census.district_id,
+				3: Census.serial_no_unit,
+				4: Census.name_of_unit,
+				5: Census.name_of_mahallah
 			});
 			store.emit('data-updated');
 		});
@@ -11471,7 +11472,7 @@
 
 	store.deleteCensus = function (catId) {
 		db.serialize(function () {
-			var stmt = db.prepare("delete from categories where id=?");
+			var stmt = db.prepare("delete from census where id=?");
 			stmt.run(catId);
 			store.emit('data-updated');
 		});
@@ -11794,11 +11795,14 @@
 	var __vue_exports__, __vue_options__
 	var __vue_styles__ = {}
 
+	/* styles */
+	__webpack_require__(10)
+
 	/* script */
-	__vue_exports__ = __webpack_require__(10)
+	__vue_exports__ = __webpack_require__(14)
 
 	/* template */
-	var __vue_template__ = __webpack_require__(15)
+	var __vue_template__ = __webpack_require__(19)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -11835,6 +11839,324 @@
 /* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(11);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(13)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!../../node_modules/css-loader/index.js!../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-a2b16718!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./CensusList.vue", function() {
+				var newContent = require("!!../../node_modules/css-loader/index.js!../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-a2b16718!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./CensusList.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(12)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+
+	// exports
+
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports) {
+
+	/*
+		MIT License http://www.opensource.org/licenses/mit-license.php
+		Author Tobias Koppers @sokra
+	*/
+	// css base code, injected by the css-loader
+	module.exports = function() {
+		var list = [];
+
+		// return the list of modules as css string
+		list.toString = function toString() {
+			var result = [];
+			for(var i = 0; i < this.length; i++) {
+				var item = this[i];
+				if(item[2]) {
+					result.push("@media " + item[2] + "{" + item[1] + "}");
+				} else {
+					result.push(item[1]);
+				}
+			}
+			return result.join("");
+		};
+
+		// import a list of modules into the list
+		list.i = function(modules, mediaQuery) {
+			if(typeof modules === "string")
+				modules = [[null, modules, ""]];
+			var alreadyImportedModules = {};
+			for(var i = 0; i < this.length; i++) {
+				var id = this[i][0];
+				if(typeof id === "number")
+					alreadyImportedModules[id] = true;
+			}
+			for(i = 0; i < modules.length; i++) {
+				var item = modules[i];
+				// skip already imported module
+				// this implementation is not 100% perfect for weird media query combinations
+				//  when a module is imported multiple times with different media queries.
+				//  I hope this will never occur (Hey this way we have smaller bundles)
+				if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+					if(mediaQuery && !item[2]) {
+						item[2] = mediaQuery;
+					} else if(mediaQuery) {
+						item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+					}
+					list.push(item);
+				}
+			}
+		};
+		return list;
+	};
+
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	/*
+		MIT License http://www.opensource.org/licenses/mit-license.php
+		Author Tobias Koppers @sokra
+	*/
+	var stylesInDom = {},
+		memoize = function(fn) {
+			var memo;
+			return function () {
+				if (typeof memo === "undefined") memo = fn.apply(this, arguments);
+				return memo;
+			};
+		},
+		isOldIE = memoize(function() {
+			return /msie [6-9]\b/.test(window.navigator.userAgent.toLowerCase());
+		}),
+		getHeadElement = memoize(function () {
+			return document.head || document.getElementsByTagName("head")[0];
+		}),
+		singletonElement = null,
+		singletonCounter = 0,
+		styleElementsInsertedAtTop = [];
+
+	module.exports = function(list, options) {
+		if(false) {
+			if(typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
+		}
+
+		options = options || {};
+		// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+		// tags it will allow on a page
+		if (typeof options.singleton === "undefined") options.singleton = isOldIE();
+
+		// By default, add <style> tags to the bottom of <head>.
+		if (typeof options.insertAt === "undefined") options.insertAt = "bottom";
+
+		var styles = listToStyles(list);
+		addStylesToDom(styles, options);
+
+		return function update(newList) {
+			var mayRemove = [];
+			for(var i = 0; i < styles.length; i++) {
+				var item = styles[i];
+				var domStyle = stylesInDom[item.id];
+				domStyle.refs--;
+				mayRemove.push(domStyle);
+			}
+			if(newList) {
+				var newStyles = listToStyles(newList);
+				addStylesToDom(newStyles, options);
+			}
+			for(var i = 0; i < mayRemove.length; i++) {
+				var domStyle = mayRemove[i];
+				if(domStyle.refs === 0) {
+					for(var j = 0; j < domStyle.parts.length; j++)
+						domStyle.parts[j]();
+					delete stylesInDom[domStyle.id];
+				}
+			}
+		};
+	}
+
+	function addStylesToDom(styles, options) {
+		for(var i = 0; i < styles.length; i++) {
+			var item = styles[i];
+			var domStyle = stylesInDom[item.id];
+			if(domStyle) {
+				domStyle.refs++;
+				for(var j = 0; j < domStyle.parts.length; j++) {
+					domStyle.parts[j](item.parts[j]);
+				}
+				for(; j < item.parts.length; j++) {
+					domStyle.parts.push(addStyle(item.parts[j], options));
+				}
+			} else {
+				var parts = [];
+				for(var j = 0; j < item.parts.length; j++) {
+					parts.push(addStyle(item.parts[j], options));
+				}
+				stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
+			}
+		}
+	}
+
+	function listToStyles(list) {
+		var styles = [];
+		var newStyles = {};
+		for(var i = 0; i < list.length; i++) {
+			var item = list[i];
+			var id = item[0];
+			var css = item[1];
+			var media = item[2];
+			var sourceMap = item[3];
+			var part = {css: css, media: media, sourceMap: sourceMap};
+			if(!newStyles[id])
+				styles.push(newStyles[id] = {id: id, parts: [part]});
+			else
+				newStyles[id].parts.push(part);
+		}
+		return styles;
+	}
+
+	function insertStyleElement(options, styleElement) {
+		var head = getHeadElement();
+		var lastStyleElementInsertedAtTop = styleElementsInsertedAtTop[styleElementsInsertedAtTop.length - 1];
+		if (options.insertAt === "top") {
+			if(!lastStyleElementInsertedAtTop) {
+				head.insertBefore(styleElement, head.firstChild);
+			} else if(lastStyleElementInsertedAtTop.nextSibling) {
+				head.insertBefore(styleElement, lastStyleElementInsertedAtTop.nextSibling);
+			} else {
+				head.appendChild(styleElement);
+			}
+			styleElementsInsertedAtTop.push(styleElement);
+		} else if (options.insertAt === "bottom") {
+			head.appendChild(styleElement);
+		} else {
+			throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");
+		}
+	}
+
+	function removeStyleElement(styleElement) {
+		styleElement.parentNode.removeChild(styleElement);
+		var idx = styleElementsInsertedAtTop.indexOf(styleElement);
+		if(idx >= 0) {
+			styleElementsInsertedAtTop.splice(idx, 1);
+		}
+	}
+
+	function createStyleElement(options) {
+		var styleElement = document.createElement("style");
+		styleElement.type = "text/css";
+		insertStyleElement(options, styleElement);
+		return styleElement;
+	}
+
+	function addStyle(obj, options) {
+		var styleElement, update, remove;
+
+		if (options.singleton) {
+			var styleIndex = singletonCounter++;
+			styleElement = singletonElement || (singletonElement = createStyleElement(options));
+			update = applyToSingletonTag.bind(null, styleElement, styleIndex, false);
+			remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true);
+		} else {
+			styleElement = createStyleElement(options);
+			update = applyToTag.bind(null, styleElement);
+			remove = function() {
+				removeStyleElement(styleElement);
+			};
+		}
+
+		update(obj);
+
+		return function updateStyle(newObj) {
+			if(newObj) {
+				if(newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap)
+					return;
+				update(obj = newObj);
+			} else {
+				remove();
+			}
+		};
+	}
+
+	var replaceText = (function () {
+		var textStore = [];
+
+		return function (index, replacement) {
+			textStore[index] = replacement;
+			return textStore.filter(Boolean).join('\n');
+		};
+	})();
+
+	function applyToSingletonTag(styleElement, index, remove, obj) {
+		var css = remove ? "" : obj.css;
+
+		if (styleElement.styleSheet) {
+			styleElement.styleSheet.cssText = replaceText(index, css);
+		} else {
+			var cssNode = document.createTextNode(css);
+			var childNodes = styleElement.childNodes;
+			if (childNodes[index]) styleElement.removeChild(childNodes[index]);
+			if (childNodes.length) {
+				styleElement.insertBefore(cssNode, childNodes[index]);
+			} else {
+				styleElement.appendChild(cssNode);
+			}
+		}
+	}
+
+	function applyToTag(styleElement, obj) {
+		var css = obj.css;
+		var media = obj.media;
+		var sourceMap = obj.sourceMap;
+
+		if (media) {
+			styleElement.setAttribute("media", media);
+		}
+
+		if (sourceMap) {
+			// https://developer.chrome.com/devtools/docs/javascript-debugging
+			// this makes source maps inside style tags work properly in Chrome
+			css += '\n/*# sourceURL=' + sourceMap.sources[0] + ' */';
+			// http://stackoverflow.com/a/26603875
+			css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
+		}
+
+		if (styleElement.styleSheet) {
+			styleElement.styleSheet.cssText = css;
+		} else {
+			while(styleElement.firstChild) {
+				styleElement.removeChild(styleElement.firstChild);
+			}
+			styleElement.appendChild(document.createTextNode(css));
+		}
+	}
+
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
 	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
@@ -11845,11 +12167,11 @@
 
 	var _store2 = _interopRequireDefault(_store);
 
-	var _CensusModal = __webpack_require__(11);
+	var _CensusModal = __webpack_require__(15);
 
 	var _CensusModal2 = _interopRequireDefault(_CensusModal);
 
-	var _EventHub = __webpack_require__(13);
+	var _EventHub = __webpack_require__(17);
 
 	var _EventHub2 = _interopRequireDefault(_EventHub);
 
@@ -11923,26 +12245,19 @@
 	//
 	//
 	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
 
 /***/ }),
-/* 11 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __vue_exports__, __vue_options__
 	var __vue_styles__ = {}
 
 	/* script */
-	__vue_exports__ = __webpack_require__(12)
+	__vue_exports__ = __webpack_require__(16)
 
 	/* template */
-	var __vue_template__ = __webpack_require__(14)
+	var __vue_template__ = __webpack_require__(18)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -11976,7 +12291,7 @@
 
 
 /***/ }),
-/* 12 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -11993,7 +12308,7 @@
 
 	var _store2 = _interopRequireDefault(_store);
 
-	var _EventHub = __webpack_require__(13);
+	var _EventHub = __webpack_require__(17);
 
 	var _EventHub2 = _interopRequireDefault(_EventHub);
 
@@ -12121,7 +12436,7 @@
 	//
 
 /***/ }),
-/* 13 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -12139,7 +12454,7 @@
 	exports.default = new _vue2.default(); // Understanding Components Communication in Vue 2.0 http://taha-sh.com/blog/understanding-components-communication-in-vue-20
 
 /***/ }),
-/* 14 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -12311,7 +12626,7 @@
 	}
 
 /***/ }),
-/* 15 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -12322,29 +12637,15 @@
 	    }
 	  }, [_c('div', {
 	    staticClass: "container"
-	  }, [_c('h2', [_vm._v("\n\t\t\t\tEconomic Census Information\n\t\t\t\t"), _c('span', {
+	  }, [_c('h2', [_vm._v("\n\t\t\t\t\tEconomic Census Information\n\t\t\t\t\t"), _c('span', {
 	    staticClass: "clickable right-float"
 	  }, [_c('i', {
 	    staticClass: "add icon",
 	    on: {
 	      "click": _vm.addCensus
 	    }
-	  })])]), _vm._v(" "), _c('div', {
-	    staticClass: "ui list"
-	  }, [_c('div', {
-	    staticClass: "item clickable"
-	  }, [_c('div', {
-	    staticClass: "content"
-	  }, [_c('a', {
-	    staticClass: "ui grey empty circular label"
-	  }), _vm._v(" "), _c('span', {
-	    on: {
-	      "click": function($event) {
-	        _vm.CensusSelected('')
-	      }
-	    }
-	  }, [_vm._v("All")])])]), _vm._v(" "), _c('table', {
-	    staticClass: "ui celled table"
+	  })])]), _vm._v(" "), _c('div', [_c('table', {
+	    staticClass: "ui celled green table single line "
 	  }, [_vm._m(0), _vm._v(" "), _c('tbody', _vm._l((_vm.censuses), function(Census, id) {
 	    return _c('tr', [_c('td', [_vm._v(_vm._s(Census.catName))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(Census.catColor))]), _vm._v(" "), _c('td', [_c('a', {
 	      class: 'ui ' + Census.catColor + ' empty circular label'
@@ -12379,7 +12680,7 @@
 	}
 
 /***/ }),
-/* 16 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
