@@ -66,12 +66,21 @@
 
 					<div class="field">
 						<label>Division</label>
-						<select v-model="catColor" data-rules="required" class="ui simple dropdown">
+						<select v-model="census.division_id" data-rules="required" class="ui simple dropdown">
 							<option value="">Select a division</option>
-							
-							
+							<option v-for="division in divisions" :value="division.id">{{division.name}}</option>
 						</select>
 					</div>
+
+					<div class="field">
+						<label>District</label>
+						<select v-model="census.district_id" data-rules="required" class="ui simple dropdown">
+							<option value="">Select a district</option>
+							<option v-for="district in districtsByDivision" :value="district.id">{{district.name}}</option>
+						</select>
+					</div>
+
+
 					<div class="">
 						<button type="submit" class="ui purple inverted button">Save</button>
 					</div>
@@ -117,7 +126,21 @@ export default {
     };
   },
 
-  props: ["censuses"],
+	props: ["censuses"],
+	
+	filters: {
+		//filterDistrictsByDivision: function (division_id) {
+		//	var division_id = division_id || this.census.division_id;
+		//	return this.districts.filter(district => district.division_id == division_id);
+		//}
+	},
+
+	computed: {
+		districtsByDivision: function () {
+			var division_id = this.census.division_id;
+			return this.districts.filter(district => district.division_id == division_id);
+		}
+	},
 
   methods: {
     addCensus() {

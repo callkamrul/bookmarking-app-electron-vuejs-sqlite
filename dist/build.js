@@ -11331,7 +11331,7 @@
 	if (typeof __vue_options__ === "function") {
 	  __vue_options__ = __vue_options__.options
 	}
-	__vue_options__.__file = "D:\\Faruque\\Projects\\BRS_BBS\\bookmarking-app-electron-vuejs-sqlite\\app\\App.vue"
+	__vue_options__.__file = "D:\\Faruque\\Projects\\BRS_BBS\\CensusApp\\app\\App.vue"
 	__vue_options__.render = __vue_template__.render
 	__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 
@@ -11342,9 +11342,9 @@
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
 	  if (!module.hot.data) {
-	    hotAPI.createRecord("data-v-6be297cc", __vue_options__)
+	    hotAPI.createRecord("data-v-9d61d800", __vue_options__)
 	  } else {
-	    hotAPI.reload("data-v-6be297cc", __vue_options__)
+	    hotAPI.reload("data-v-9d61d800", __vue_options__)
 	  }
 	})()}
 	if (__vue_options__.functional) {console.error("[vue-loader] App.vue: functional components are not supported and should be defined in plain js files using render functions.")}
@@ -11815,7 +11815,7 @@
 	if (typeof __vue_options__ === "function") {
 	  __vue_options__ = __vue_options__.options
 	}
-	__vue_options__.__file = "D:\\Faruque\\Projects\\BRS_BBS\\bookmarking-app-electron-vuejs-sqlite\\app\\components\\Census.vue"
+	__vue_options__.__file = "D:\\Faruque\\Projects\\BRS_BBS\\CensusApp\\app\\components\\Census.vue"
 	__vue_options__.render = __vue_template__.render
 	__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 
@@ -11826,9 +11826,9 @@
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
 	  if (!module.hot.data) {
-	    hotAPI.createRecord("data-v-62b275b6", __vue_options__)
+	    hotAPI.createRecord("data-v-432786ea", __vue_options__)
 	  } else {
-	    hotAPI.reload("data-v-62b275b6", __vue_options__)
+	    hotAPI.reload("data-v-432786ea", __vue_options__)
 	  }
 	})()}
 	if (__vue_options__.functional) {console.error("[vue-loader] Census.vue: functional components are not supported and should be defined in plain js files using render functions.")}
@@ -11852,8 +11852,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../node_modules/css-loader/index.js!../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-62b275b6!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Census.vue", function() {
-				var newContent = require("!!../../node_modules/css-loader/index.js!../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-62b275b6!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Census.vue");
+			module.hot.accept("!!../../node_modules/css-loader/index.js!../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-432786ea!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Census.vue", function() {
+				var newContent = require("!!../../node_modules/css-loader/index.js!../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-432786ea!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Census.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -11871,7 +11871,7 @@
 
 
 	// module
-	exports.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+	exports.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 	// exports
 
@@ -12259,6 +12259,15 @@
 	//
 	//
 	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
 
 	exports.default = {
 	  data: function data() {
@@ -12279,6 +12288,22 @@
 
 
 	  props: ["censuses"],
+
+	  filters: {
+	    //filterDistrictsByDivision: function (division_id) {
+	    //	var division_id = division_id || this.census.division_id;
+	    //	return this.districts.filter(district => district.division_id == division_id);
+	    //}
+	  },
+
+	  computed: {
+	    districtsByDivision: function districtsByDivision() {
+	      var division_id = this.census.division_id;
+	      return this.districts.filter(function (district) {
+	        return district.division_id == division_id;
+	      });
+	    }
+	  },
 
 	  methods: {
 	    addCensus: function addCensus() {
@@ -12470,8 +12495,8 @@
 	    directives: [{
 	      name: "model",
 	      rawName: "v-model",
-	      value: (_vm.catColor),
-	      expression: "catColor"
+	      value: (_vm.census.division_id),
+	      expression: "census.division_id"
 	    }],
 	    staticClass: "ui simple dropdown",
 	    attrs: {
@@ -12485,14 +12510,54 @@
 	          var val = "_value" in o ? o._value : o.value;
 	          return val
 	        });
-	        _vm.catColor = $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+	        _vm.$set(_vm.census, "division_id", $event.target.multiple ? $$selectedVal : $$selectedVal[0])
 	      }
 	    }
 	  }, [_c('option', {
 	    attrs: {
 	      "value": ""
 	    }
-	  }, [_vm._v("Select a division")])])]), _vm._v(" "), _vm._m(1)])])])])
+	  }, [_vm._v("Select a division")]), _vm._v(" "), _vm._l((_vm.divisions), function(division) {
+	    return _c('option', {
+	      domProps: {
+	        "value": division.id
+	      }
+	    }, [_vm._v(_vm._s(division.name))])
+	  })], 2)]), _vm._v(" "), _c('div', {
+	    staticClass: "field"
+	  }, [_c('label', [_vm._v("District")]), _vm._v(" "), _c('select', {
+	    directives: [{
+	      name: "model",
+	      rawName: "v-model",
+	      value: (_vm.census.district_id),
+	      expression: "census.district_id"
+	    }],
+	    staticClass: "ui simple dropdown",
+	    attrs: {
+	      "data-rules": "required"
+	    },
+	    on: {
+	      "change": function($event) {
+	        var $$selectedVal = Array.prototype.filter.call($event.target.options, function(o) {
+	          return o.selected
+	        }).map(function(o) {
+	          var val = "_value" in o ? o._value : o.value;
+	          return val
+	        });
+	        _vm.$set(_vm.census, "district_id", $event.target.multiple ? $$selectedVal : $$selectedVal[0])
+	      }
+	    }
+	  }, [_c('option', {
+	    attrs: {
+	      "value": ""
+	    }
+	  }, [_vm._v("Select a district")]), _vm._v(" "), _vm._l((_vm.districtsByDivision), function(district) {
+	    return _c('option', {
+	      domProps: {
+	        "value": district.id
+	      }
+	    }, [_vm._v(_vm._s(district.name))])
+	  })], 2)]), _vm._v(" "), _vm._m(1)])])])])
 	},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
 	  return _c('thead', [_c('tr', [_c('th', [_vm._v("Serial No.")]), _vm._v(" "), _c('th', [_vm._v("Economic Unit / Company")]), _vm._v(" "), _c('th', [_vm._v("Unit Type")]), _vm._v(" "), _c('th', [_vm._v("Year of Inception")]), _vm._v(" "), _c('th', [_vm._v("Is Registered")]), _vm._v(" "), _c('th')])])
 	},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -12506,7 +12571,7 @@
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-hot-reload-api").rerender("data-v-62b275b6", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-432786ea", module.exports)
 	  }
 	}
 
@@ -12528,7 +12593,7 @@
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-hot-reload-api").rerender("data-v-6be297cc", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-9d61d800", module.exports)
 	  }
 	}
 
