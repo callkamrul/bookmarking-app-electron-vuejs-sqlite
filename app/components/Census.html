@@ -1,0 +1,77 @@
+<div>
+	<h2> Economic Census Information
+		<span class="clickable right-float">
+			<i v-show="isEdit==false" @click="addCensus" class="glyphicon glyphicon-plus"></i>
+			<i v-show="isEdit==true" @click="backToList" class="glyphicon glyphicon-arrow-left"></i>
+		</span>
+	</h2>
+	<div v-show="isEdit == false" id="censuses">
+		<div class="container">
+			<div>
+				<table class="table table-bordered ">
+					<thead>
+						<tr>
+							<th>Serial No.</th>
+							<th>Economic Unit / Company</th>
+							<th>Unit Type</th>
+							<th>Year of Inception</th>
+							<th>Is Registered</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr v-for="(Census, id) in censuses">
+							<td>{{Census.serial_no_unit}}</td>
+							<td>{{Census.name_of_unit}}</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>
+								<button @click="editCensus(id)" class="btn btn-success">
+									<i class="edit fa fa-edit"></i> Edit</button>
+								<button @click="deleteCensus(id)" class="btn btn-danger">
+									<i class="remove fa fa-trash"></i> Delete</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div id="census-modal" v-show="isEdit == true">
+		<h4 class="modal-title">{{census.id > 0 ? 'Edit census' : 'Add a new census' }}</h4>
+		<div class="modal-body">
+			<form class="ui form" @submit.prevent="saveCensus">
+				<div class="field">
+					<label>Serial No.</label>
+					<input v-model="census.serial_no_unit" type="text" data-rules="required"> </div>
+				<div class="field">
+					<label>Name of Unit</label>
+					<input v-model="census.name_of_unit" type="text" data-rules="required"> </div>
+				<div class="field">
+					<label>Name of Mahallah</label>
+					<input v-model="census.name_of_mahallah" type="text" data-rules="required"> </div>
+				<div class="field">
+					<label>Division</label>
+					<select v-model="census.division_id" data-rules="required" class="ui simple dropdown">
+						<option value="">Select a division</option>
+						<option v-for="division in divisions" :value="division.id">{{division.name}}</option>
+					</select>
+				</div>
+				<div class="field">
+					<label>District</label>
+					<select v-model="census.district_id" data-rules="required" class="ui simple dropdown">
+						<option value="">Select a district</option>
+						<option v-for="district in districtsByDivision" :value="district.id">{{district.name}}</option>
+					</select>
+				</div>
+
+				<button type="button" @click="backToList" class="btn btn-default">Close</button>
+				<button type="submit" class="btn btn-primary">Save changes</button>
+
+
+			</form>
+
+		</div>
+	</div>
+</div>
